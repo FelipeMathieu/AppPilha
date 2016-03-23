@@ -15,16 +15,22 @@ int main()
 	getline(cin, n);
 	pilha = pilha->criaPilha(n.length());
 
-	cout << n;
-
-	for (int i = 0; aux != 1 ; i++)
+	if (n.length() != 0)
 	{
-		e = n[i];
-		pilha->empilha(pilha, e, n.length());
-		if (pilha->pilhaCheia(pilha))
+		for (int i = 0; aux != 1; i++)
 		{
-			aux++;
+			e = n[i];
+			pilha->empilha(pilha, e, n.length());
+			if (pilha->pilhaCheia(pilha))
+			{
+				aux++;
+			}
 		}
+	}
+	else
+	{
+		cout << "PILHA VAZIA!" << endl;
+		return 0;
 	}
 
 	pilha->testaPilha(pilha);
@@ -36,7 +42,7 @@ int main()
 
 	pilha->imprimePilha(pilha);
 
-	//free(pilha);
+	cout << endl;
 
 	return 0;
 }

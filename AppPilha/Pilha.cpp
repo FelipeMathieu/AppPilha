@@ -71,11 +71,18 @@ void Pilha::desempilha(Pilha *p)
 
 	cout << "Desempilha elemento: " << p->dado[p->topo] << endl;
 
-	for (int i = 0; i < p->MAX; i++)
+	if (p->MAX > 0)
 	{
-		n = n - 1;
-		p->dado[p->MAX - i] = p->dado[n];
-		p->dado[n] = NULL;
+		for (int i = 0; i < p->MAX; i++)
+		{
+			n = n - 1;
+			p->dado[p->MAX - i] = p->dado[n];
+			p->dado[n] = NULL;
+		}
+	}
+	else
+	{
+		p->pilhaCheia(p);
 	}
 }
 
